@@ -5,6 +5,7 @@ from CustomerType import CustomerType
 
 class RegisterHelper:
 
+    # using deque instead of lists for better runtimes for pop() and insert()
     @staticmethod
     def create_registers(register_count):
         registers = {}
@@ -12,6 +13,8 @@ class RegisterHelper:
             registers[i] = deque()
         return registers
 
+    # In every dict, key = Register Number. Value = Deque()
+    # Every Deque comprises of customer objects
     @staticmethod
     def add_customer_to_register(customer, registers):
         registers = dict(sorted(registers.items()))

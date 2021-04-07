@@ -5,6 +5,7 @@ class Customer:
         self.__arrival_time = arrival_time
         self.__item_count = item_count
 
+    # using pythonic properties instead of traditional setters and getters.
     @property
     def customer_type(self):
         return self.__customer_type
@@ -21,6 +22,7 @@ class Customer:
     def item_count(self, item_count):
         self.__item_count = item_count
 
+    # overriding eq to compare two customer objects
     def __eq__(self, other):
         if isinstance(other, Customer):
             return self.customer_type == other.customer_type and self.arrival_time == other.arrival_time \
@@ -31,6 +33,7 @@ class Customer:
     def __hash__(self):
         return hash((self.customer_type, self.arrival_time, self.item_count))
 
+    # a helper function for debugging
     def print_customer_details(self):
         print("Customer Type : ", self.customer_type,"Customer Arrival Time : ", self.arrival_time,
               "Customer Item Count : ", self.item_count)

@@ -22,8 +22,12 @@ class CashierLineMain:
 
         register_count, pre_sorted_customer_list = ProcessData.parse_input_file_data(filename)
 
+        # sorting the customer_list based on arrival_time, item_count and customer_type in that order respectively.
+
         customer_list = sorted(pre_sorted_customer_list, key=lambda customer:
                     (customer.arrival_time, customer.item_count, customer.customer_type))
+
+        # customer_list accounts for customers that need to be added to the cashier lines
 
         prev_time = 0
 

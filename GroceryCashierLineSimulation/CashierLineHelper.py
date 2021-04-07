@@ -1,5 +1,6 @@
 class CashierLineHelper:
 
+    # reducing item count according to the time diff and cashier type
     @staticmethod
     def reduce_item_count(registers, time_diff, register_count):
 
@@ -18,6 +19,8 @@ class CashierLineHelper:
                     if register[0].item_count <= 0:
                         register.popleft()
 
+    # once there are no more customers left to be addded to the cashier lines, calculating
+    # the max_time required to finish all check outs
     @staticmethod
     def process_remaining_customers(registers, register_count):
 
